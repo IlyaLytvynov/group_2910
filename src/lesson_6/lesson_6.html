@@ -11,12 +11,75 @@
     <title key="title"></title>
   </head>
   <body>
-    <nav class="page-nav page-nav_expand">
+    <nav class="page-nav" id="pageNav">
       <div class="page-container">
         <div class="page-nav__controls">
-          <button class="page-nav__control">P</button>
-          <button class="page-nav__control">L</button>
-          <button class="page-nav__control">C</button>
+          <button class="page-nav__control toggle" id="toggle">
+            <span class="toggle__bar"></span>
+            <span class="toggle__bar"></span>
+          </button>
+          <button class="page-nav__control logo">
+            <svg
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="20px"
+              height="44px"
+              viewBox="0 0 20 44"
+              style="enable-background:new 0 0 20 44;"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M18.1,24.23c-0.11,0.31-0.22,0.6-0.33,0.88c-0.29,0.66-0.63,1.27-1.02,1.84
+			c-0.54,0.77-0.98,1.3-1.32,1.59c-0.52,0.48-1.09,0.73-1.69,0.74c-0.43,0-0.95-0.12-1.56-0.37c-0.61-0.25-1.17-0.37-1.68-0.37
+			c-0.54,0-1.11,0.12-1.73,0.37c-0.62,0.25-1.11,0.38-1.49,0.39c-0.58,0.02-1.15-0.23-1.73-0.76c-0.37-0.32-0.83-0.87-1.38-1.65
+			C3.58,26.06,3.09,25.1,2.71,24C2.3,22.81,2.1,21.66,2.1,20.55c0-1.27,0.28-2.37,0.83-3.29c0.43-0.74,1.01-1.32,1.73-1.75
+			c0.72-0.43,1.5-0.65,2.34-0.66c0.46,0,1.06,0.14,1.81,0.42c0.75,0.28,1.23,0.42,1.44,0.42c0.16,0,0.69-0.17,1.59-0.5
+			c0.85-0.31,1.57-0.43,2.16-0.38c1.6,0.13,2.8,0.76,3.6,1.89c-1.43,0.87-2.14,2.08-2.12,3.64c0.01,1.21,0.45,2.22,1.32,3.02
+			C17.18,23.74,17.61,24.02,18.1,24.23z M14.08,10.31c0.01,0.13,0.02,0.25,0.02,0.38c0,0.95-0.35,1.84-1.04,2.66
+			c-0.84,0.98-1.85,1.54-2.94,1.45c-0.01-0.11-0.02-0.23-0.02-0.36c0-0.91,0.4-1.89,1.1-2.69c0.35-0.4,0.8-0.74,1.34-1.01
+			C13.09,10.48,13.6,10.33,14.08,10.31z"
+                  />
+                </g>
+                <g>
+                  <rect style="fill:none;" width="20" height="44" />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <button class="page-nav__control">
+            <svg
+              version="1.1"
+              id="GLYPHS"
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="14px"
+              height="44px"
+              viewBox="0 0 14 44"
+              style="enable-background:new 0 0 14 44;"
+              xml:space="preserve"
+            >
+              <g>
+                <g>
+                  <path
+                    d="M1.5,16C0.67,16,0,16.67,0,17.5v11C0,29.33,0.67,30,1.5,30h11c0.83,0,1.5-0.67,1.5-1.5v-11
+			c0-0.83-0.67-1.5-1.5-1.5H1.5z M13,28.5c0,0.28-0.22,0.5-0.5,0.5h-11C1.22,29,1,28.78,1,28.5v-11C1,17.22,1.22,17,1.5,17h11
+			c0.28,0,0.5,0.22,0.5,0.5V28.5z"
+                  />
+                </g>
+                <g>
+                  <path
+                    d="M10.75,17h-7.5v-0.5C3.25,14.34,5.2,13,7,13s3.75,1.34,3.75,3.5V17z M4.3,16H9.7
+			c-0.27-1.25-1.52-2-2.7-2S4.57,14.75,4.3,16z"
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
         </div>
         <ul class="page-nav__list">
           <li class="page-nav__item">
@@ -272,14 +335,29 @@
             </div>
             <a href="" class="text-block-link">Details ></a>
           </div>
-          <img
+          <figure class="iphone-x"></figure>
+          <!-- <img
             src="./assets/images/iphone_x_large_2x.jpg"
+            srcset="
+              ./assets/images/iphone_8_small_2x.jpg   320px,
+              ./assets/images/why_switch_large_2x.jpg 480px,
+              ./assets/images/iphone_x_large_2x.jpg   800px
+            "
+            sizes="(max-width: 320px) 280px,
+              (max-width: 480px) 440px,
+              800px"
             alt=""
             class="main-section-img"
-          />
+          /> -->
         </div>
       </section>
     </main>
     <footer class="page-footer"></footer>
+
+    <script>
+      toggle.addEventListener('click', () => {
+        pageNav.classList.toggle('page-nav_expand')
+      })
+    </script>
   </body>
 </html>

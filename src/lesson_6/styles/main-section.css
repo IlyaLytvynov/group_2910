@@ -48,3 +48,27 @@
   align-items: center;
 }
 
+.iphone-x {
+  height: 200px;
+  width: 986px;
+  background-image: url('../assets/images/iphone_x_large_2x.jpg');
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 992px) {
+  .iphone-x {
+    height: 150px;
+    width: 700px;
+    background-image: url('../assets/images/iphone_x_medium_2x.jpg');
+  }
+}
+
+@media (max-width: 768px) {
+  .iphone-x {
+    height: 150px;
+    width: 700px;
+    background-image: url('../assets/images/iphone_x_small_2x.jpg');
+  }
+}
