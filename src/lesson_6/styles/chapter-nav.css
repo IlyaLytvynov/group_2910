@@ -1,0 +1,41 @@
+.chapter-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #f6f6f6;
+}
+
+.chapter-link {
+  height: 86px;
+  width: 60px;
+  padding: 0.5rem;
+  display: block;
+  margin: 0 5px;
+}
+
+.chapter-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.chapter-icon{
+  height: 55%;
+  display: block;
+}
+
+.chapter-title {
+  padding-top: 5px;
+  font-size: 8px;
+  color: rgba(0,0,0,0.8);
+}
+
+.chapter-link path {
+  fill:#333333;
+}
+
+.chapter-link:hover path{
+  fill: red;
+}
