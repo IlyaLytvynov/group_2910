@@ -4,5 +4,11 @@
   ],
   "lesson_6": [
     "./src/lesson_6/lesson_6.js"
+  ],
+  "lesson_8": [
+    "./src/lesson_8/lesson_8.js"
+  ],
+  "sass_test": [
+    "./src/sass_test/sass_test.js"
   ]
 }

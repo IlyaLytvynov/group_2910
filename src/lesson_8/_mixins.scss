@@ -1,0 +1,44 @@
+@import "./variables.scss";
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin square($size, $color) {
+  width: $size;
+  height: $size;
+  background: $color;
+}
+
+@mixin desktop {
+  @media (min-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin phablet {
+  @media (max-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $screen-xs) {
+    @content;
+  }
+}
