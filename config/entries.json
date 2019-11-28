@@ -10,5 +10,8 @@
   ],
   "sass_test": [
     "./src/sass_test/sass_test.js"
+  ],
+  "lesson_9": [
+    "./src/lesson_9/lesson_9.js"
   ]
 }
