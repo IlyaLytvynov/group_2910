@@ -1,24 +1,24 @@
 // include node fs module
-const fs = require('fs');
-const minimist = require('minimist');
+const fs = require("fs");
+const minimist = require("minimist");
 const argv = process.argv.slice(2);
-const pageName = minimist(argv)['_'][0];
-const stylesType = minimist(argv)['styles'];
-const entries = require('./config/entries.json');
-const util = require('util');
-const { removePage, writeFile, readFilePromisified } = require('./utils');
+const pageName = minimist(argv)["_"][0];
+const stylesType = minimist(argv)["styles"];
+const entries = require("./config/entries.json");
+const util = require("util");
+const { removePage, writeFile, readFilePromisified } = require("./utils");
 
-const SUPPORTED_STYLES = ['css', 'scss'];
+const SUPPORTED_STYLES = ["css", "scss"];
 const pathToFile = `${__dirname}/src/${pageName}/${pageName}`;
 
-const FgBlack = '\x1b[30m';
-const FgRed = '\x1b[31m';
-const FgGreen = '\x1b[32m';
-const FgYellow = '\x1b[33m';
-const FgBlue = '\x1b[34m';
-const FgMagenta = '\x1b[35m';
-const FgCyan = '\x1b[36m';
-const FgWhite = '\x1b[37m';
+const FgBlack = "\x1b[30m";
+const FgRed = "\x1b[31m";
+const FgGreen = "\x1b[32m";
+const FgYellow = "\x1b[33m";
+const FgBlue = "\x1b[34m";
+const FgMagenta = "\x1b[35m";
+const FgCyan = "\x1b[36m";
+const FgWhite = "\x1b[37m";
 
 String.prototype.insert = function(index, string) {
   if (index > 0)
@@ -39,10 +39,10 @@ const readTemplate = async () =>
 
 const updateIndex = async () => {
   const tmpl = await readFilePromisified(`${__dirname}/src/index/index.html`);
-  const indexOfEndOfpage = tmpl.indexOf('</body>');
+  const indexOfEndOfpage = tmpl.indexOf("</body>");
   const u = tmpl.insert(
     indexOfEndOfpage,
-    `<a href='./${pageName}.html' data-testid='${pageName}'>${pageName}</a>`,
+    `<a href='./${pageName}.html' data-testid='${pageName}'>${pageName}</a>`
   );
   await writeFile(`${__dirname}/src/index/index.html`, u);
 };
@@ -61,12 +61,12 @@ const createDir = async () => {
       await mkdir(dir);
     }
   } catch (e) {
-    throw 'Directory was not created';
+    throw "Directory was not created";
   }
 };
 const validate = async (pageName, stylesType) => {
   if (!checkValid(pageName)) {
-    throw 'Validation error: имя страницы должно содержать только символы в нижнем регистре разделенные через _ например home_work_1';
+    throw "Validation error: имя страницы должно содержать только символы в нижнем регистре разделенные через _ например home_work_1";
   }
 
   if (!stylesType || SUPPORTED_STYLES.indexOf(stylesType) === -1) {
@@ -84,31 +84,31 @@ const addPage = async (pageName, stylesType) => {
     const isExists = await exists(dir);
 
     if (isExists) {
-      console.log(`${FgRed}`, '!!!Page already exists!!!');
+      console.log(`${FgRed}`, "!!!Page already exists!!!");
       return;
     }
 
     await validate(pageName, stylesType);
     await createDir();
     const htmlTemplate = await readTemplate();
-    const renderedTemplate = htmlTemplate.replace('${pageName}', pageName);
-    await updateIndex('TEST');
+    const renderedTemplate = htmlTemplate.replace("${pageName}", pageName);
+    await updateIndex("TEST");
     await writeFile(`${pathToFile}.html`, renderedTemplate);
-    await writeFile(`${pathToFile}.${stylesType}`, '');
+    await writeFile(`${pathToFile}.${stylesType}`, "");
     await writeFile(
       `${pathToFile}.js`,
-      `import './${pageName}.${stylesType}';`,
+      `import './${pageName}.${stylesType}';`
     );
 
     entries[pageName] = [`./src/${pageName}/${pageName}.js`];
 
     await writeFile(
       `${__dirname}/config/entries.json`,
-      `${JSON.stringify(entries, null, 2)}`,
+      `${JSON.stringify(entries, null, 2)}`
     );
     console.log(
       `${FgGreen}`,
-      'Page successfully created' + JSON.stringify(entries, null, 2),
+      "Page successfully created" + JSON.stringify(entries, null, 2)
     );
   } catch (e) {
     revertChanges(pageName);
