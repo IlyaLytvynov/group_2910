@@ -1,1 +1,0 @@
-import './sass_test.scss';

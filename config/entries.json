@@ -8,13 +8,13 @@
   "lesson_8": [
     "./src/lesson_8/lesson_8.js"
   ],
-  "sass_test": [
-    "./src/sass_test/sass_test.js"
-  ],
   "lesson_9": [
     "./src/lesson_9/lesson_9.js"
   ],
   "lesson_ten": [
     "./src/lesson_ten/lesson_ten.js"
+  ],
+  "lesson_11": [
+    "./src/lesson_11/lesson_11.js"
   ]
 }
