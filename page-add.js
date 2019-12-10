@@ -30,7 +30,7 @@ String.prototype.insert = function(index, string) {
 };
 
 function checkValid(str) {
-  const re = /^[a-z1-9_]{0,30}$/;
+  const re = /^[a-z\d_]{0,30}$/;
   return re.test(str);
 }
 
