@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="http://localhost:35729/livereload.js"></script>
+    <title key="title"></title>
+  <link href="/lesson_9.css" rel="stylesheet"></head>
+  <body>
+    <h1 id="header">Hello from lesson_9</h1>
+    <script>
+      const userName = "John snow"; // string
+      let userAge = 28; // number
+      let userIsAdult = true;
+
+      let user = {
+        name: "John Snow",
+        age: 28,
+        expirience: 10,
+        isAdult: true,
+        phones: {
+          mobile: "+123123123",
+          private: "+1234455451234123"
+        }
+      }; // HashMap, object, dictionary, Map, HashTable
+
+      console.log(typeof user.age);
+      console.log(user.age * user.expirience);
+      console.log(user.phones.mobile);
+      alert(typeof userAge);
+
+      // запрашивать имя пользователя
+      // сравнивать его с секретным именем
+      // если имя совпал с секретом
+      // показать модальное окно с текстом привет!
+      // если не совпало
+      // показать модальное окно с текстом пока!
+
+      // запросить текст
+      // проверить на гласные буквы
+      // если есть
+      // показать модальное окно с текстом Гласные найдены!
+      // если нет
+      // показать не найдены
+      // const name = prompt("Enter name");
+      // let nameUpeperCased = "";
+
+      // for (let i = 0; i < name.length; i++) {
+      //   nameUpeperCased = nameUpeperCased + name[i].toUpperCase() + "-";
+      // }
+
+      // alert(nameUpeperCased);
+      const name = prompt("Enter name");
+    </script>
+  <script type="text/javascript" src="/lesson_9.js"></script></body>
+</html>
