@@ -1,8 +1,8 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const LiveReloadPlugin = require('webpack-livereload-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const entry = require('./entries.json');
-const path = require('path');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const LiveReloadPlugin = require("webpack-livereload-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const entry = require("./entries.json");
+const path = require("path");
 
 const baseConf = () => {
   let plugins = Object.keys(entry).reduce((acc, name) => {
@@ -11,8 +11,8 @@ const baseConf = () => {
         title: `${name}`,
         template: `./src/${name}/${name}.html`,
         chunks: [`vendors~${name}`, name],
-        filename: `./${name}.html`,
-      }),
+        filename: `./${name}.html`
+      })
     );
 
     return acc;
@@ -22,10 +22,10 @@ const baseConf = () => {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     }),
-    new LiveReloadPlugin(),
+    new LiveReloadPlugin()
   ]);
 
   console.log(process.env.NODE_ENV);
@@ -33,45 +33,45 @@ const baseConf = () => {
   return {
     entry,
     output: {
-      path: path.join(__dirname, './docs'),
-      filename: '[name].js',
-      chunkFilename: '[name].chunkhash.js',
-      publicPath: '/',
+      path: path.join(__dirname, "./docs"),
+      filename: "[name].js",
+      chunkFilename: "[name].chunkhash.js",
+      publicPath: "./"
     },
-    mode: 'development',
-    devtool: 'source-map',
+    mode: "development",
+    devtool: "source-map",
     module: {
       rules: [
         {
           test: /\.html$/,
           use: [
             {
-              loader: 'html-loader',
-            },
-          ],
+              loader: "html-loader"
+            }
+          ]
         },
         {
           test: /.(js|jsx)$/,
           exclude: /node_modules/,
           use: {
-            loader: 'babel-loader',
-          },
+            loader: "babel-loader"
+          }
         },
         {
           test: /\.scss/,
           use: [
             MiniCssExtractPlugin.loader,
-            'css-loader', // translates CSS into CommonJS
-            'sass-loader',
-          ],
+            "css-loader", // translates CSS into CommonJS
+            "sass-loader"
+          ]
         },
         {
           test: /\.css/,
           use: [
             MiniCssExtractPlugin.loader,
-            'css-loader', // translates CSS into CommonJS
-            'sass-loader',
-          ],
+            "css-loader", // translates CSS into CommonJS
+            "sass-loader"
+          ]
         },
         {
           /**
@@ -83,29 +83,29 @@ const baseConf = () => {
            * You can add here any file extension you want to get copied to your output
            */
           test: /\.(png|jpg|jpeg|gif|svg)$/,
-          loader: 'file-loader?publicPath=./&name=assets/images/[name].[ext]',
+          loader: "file-loader?publicPath=./&name=assets/images/[name].[ext]"
         },
         {
           test: /\.(eot|ttf|woff|woff2)$/,
-          loader: 'file-loader?publicPath=./&name=assets/fonts/[name].[ext]',
-        },
-      ],
+          loader: "file-loader?publicPath=./&name=assets/fonts/[name].[ext]"
+        }
+      ]
     },
     plugins,
     optimization: {
       splitChunks: {
         // include all types of chunks
-        chunks: 'all',
+        chunks: "all",
         cacheGroups: {
           vendor: {
-            chunks: 'initial',
-            name: 'vendor',
-            test: 'vendor',
-            enforce: false,
-          },
-        },
-      },
-    },
+            chunks: "initial",
+            name: "vendor",
+            test: "vendor",
+            enforce: false
+          }
+        }
+      }
+    }
   };
 };
 

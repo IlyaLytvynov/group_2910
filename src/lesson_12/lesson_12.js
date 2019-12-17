@@ -1,2 +1,11 @@
 import "./lesson_12.scss";
 import "./buttons";
+import "./button-dynamic";
+import { trafficLighterDynamic } from "../common/lighterDynamic/lighterDinamic";
+trafficLighterDynamic();
+trafficLighterDynamic();
+trafficLighterDynamic();
+trafficLighterDynamic();
+trafficLighterDynamic();
+trafficLighterDynamic();
+trafficLighterDynamic();

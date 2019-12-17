@@ -1,0 +1,27 @@
+$colors: red, yellow, green, blue, magenta;
+
+.traffic-lighter {
+  width: 70px;
+  border: 1px solid rgb(134, 134, 134);
+  margin: 0 auto;
+  padding: 10px;
+  &__light {
+    border-radius: 50%;
+    background: rgb(97, 97, 97);
+    width: 50px;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s;
+    &.active {
+      @for $i from 1 through length($colors) {
+        $color: nth($colors, $i);
+        &:nth-child(#{$i}) {
+          background-color: $color;
+        }
+      }
+    }
+  }
+}

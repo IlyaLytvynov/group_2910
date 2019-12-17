@@ -21,9 +21,10 @@ const getRandomColor = () => {
 
 const toggleOn = (button, i) => {
   console.log(button, i);
+  const time = 100;
   button.style.backgroundColor = getRandomColor();
   button.style.transform = `translateX(${100 * (i + 1)}%)`;
-  button.style.transition = "all 0.5s";
+  button.style.transition = `all ${time}ms`;
   button.setAttribute("data-is-active", true);
 };
 

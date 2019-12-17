@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 7);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -129,6 +129,22 @@ var createButton = function createButton() {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/common/button/index.js":
+/*!************************************!*\
+  !*** ./src/common/button/index.js ***!
+  \************************************/
+/*! exports provided: createButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button */ "./src/common/button/button.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["createButton"]; });
+
+
 
 /***/ }),
 
@@ -290,99 +306,64 @@ var createRoot = function createRoot() {
 
 /***/ }),
 
-/***/ "./src/lesson_11/calc.js":
-/*!*******************************!*\
-  !*** ./src/lesson_11/calc.js ***!
-  \*******************************/
-/*! exports provided: calc */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calc", function() { return calc; });
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-// Functions
-// Funtion params
-// Function return
-// Scopes, global|local
-// Modules|WEBPACK
-// FUNCTION DECLARATION vs FUNCTION EXPRESSION vs ARROW FUNCTIONS
-// CLOJURES
-// CONTEXT
-function requestOperands() {
-  var valueA = requestOperand("Enter A");
-  var valueB = requestOperand("Enter B");
-  return [valueA, valueB];
-}
-
-function requestValue(message) {
-  var str = prompt(message);
-  var number = parseInt(str);
-  return number;
-}
-
-function requestOperand(message) {
-  var number = requestValue(message);
-
-  while (isNaN(number)) {
-    number = requestValue(message);
-  }
-
-  return number;
-}
-
-function add(a, b) {
-  return a + b;
-}
-
-function print(data) {
-  display.textContent = "RESULT: " + data;
-}
-
-function calc() {
-  var _requestOperands = requestOperands(),
-      _requestOperands2 = _slicedToArray(_requestOperands, 2),
-      operandA = _requestOperands2[0],
-      operandB = _requestOperands2[1]; // 20, 15
-
-
-  var result = add(operandA, operandB);
-  print(result);
-}
-
-/***/ }),
-
-/***/ "./src/lesson_11/lesson_11.js":
+/***/ "./src/lesson_13/lesson_13.js":
 /*!************************************!*\
-  !*** ./src/lesson_11/lesson_11.js ***!
+  !*** ./src/lesson_13/lesson_13.js ***!
   \************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lesson_11_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lesson_11.scss */ "./src/lesson_11/lesson_11.scss");
-/* harmony import */ var _lesson_11_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lesson_11_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _calc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./calc */ "./src/lesson_11/calc.js");
+/* harmony import */ var _lesson_13_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lesson_13.scss */ "./src/lesson_13/lesson_13.scss");
+/* harmony import */ var _lesson_13_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lesson_13_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _lighter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lighter */ "./src/lesson_13/lighter.js");
 /* harmony import */ var _common_lighterDynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/lighterDynamic */ "./src/common/lighterDynamic/index.js");
+/* harmony import */ var _common_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/button */ "./src/common/button/index.js");
 
 
+
+
+var trafficLights = document.querySelectorAll(".traffic-lighter");
+var _iteratorNormalCompletion = true;
+var _didIteratorError = false;
+var _iteratorError = undefined;
+
+try {
+  for (var _iterator = trafficLights[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    var lighter = _step.value;
+    Object(_lighter__WEBPACK_IMPORTED_MODULE_1__["trafficLighter"])(lighter);
+  }
+} catch (err) {
+  _didIteratorError = true;
+  _iteratorError = err;
+} finally {
+  try {
+    if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+      _iterator["return"]();
+    }
+  } finally {
+    if (_didIteratorError) {
+      throw _iteratorError;
+    }
+  }
+}
 
 Object(_common_lighterDynamic__WEBPACK_IMPORTED_MODULE_2__["trafficLighterDynamic"])();
-Object(_calc__WEBPACK_IMPORTED_MODULE_1__["calc"])();
+Object(_common_button__WEBPACK_IMPORTED_MODULE_3__["createButton"])(document.querySelector("body"), "OPEN ALERt", function () {
+  alert("HELLO!");
+});
+Object(_common_button__WEBPACK_IMPORTED_MODULE_3__["createButton"])(document.querySelector("body"), "Add lighter", function () {
+  Object(_common_lighterDynamic__WEBPACK_IMPORTED_MODULE_2__["trafficLighterDynamic"])();
+}, "success"); // trafficLighter(trafficLights[0]);
+// trafficLighter(trafficLights[1]);
+// trafficLighter(trafficLights[2]);
 
 /***/ }),
 
-/***/ "./src/lesson_11/lesson_11.scss":
+/***/ "./src/lesson_13/lesson_13.scss":
 /*!**************************************!*\
-  !*** ./src/lesson_11/lesson_11.scss ***!
+  !*** ./src/lesson_13/lesson_13.scss ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -391,17 +372,103 @@ Object(_calc__WEBPACK_IMPORTED_MODULE_1__["calc"])();
 
 /***/ }),
 
-/***/ 5:
+/***/ "./src/lesson_13/lighter.js":
+/*!**********************************!*\
+  !*** ./src/lesson_13/lighter.js ***!
+  \**********************************/
+/*! exports provided: trafficLighter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trafficLighter", function() { return trafficLighter; });
+/* harmony import */ var _lighter_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lighter.scss */ "./src/lesson_13/lighter.scss");
+/* harmony import */ var _lighter_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lighter_scss__WEBPACK_IMPORTED_MODULE_0__);
+
+var trafficLighter = function trafficLighter(lighterRoot) {
+  console.log(lighterRoot);
+  var ROOT_CLASS_NAME = "traffic-lighter";
+  var ACTIVE_CLASS_NAME = "active";
+  var lights = lighterRoot.querySelectorAll(".".concat(ROOT_CLASS_NAME, "__light")); // DOMNode
+
+  var button = lighterRoot.querySelector(".".concat(ROOT_CLASS_NAME, "__btn")); // DMONode
+
+  var isActive = false;
+  console.log(lighterRoot);
+
+  button.onclick = function () {
+    toggleOff();
+    isActive = !isActive;
+  };
+
+  var toggleOff = function toggleOff() {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = lights[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var light = _step.value;
+        light.classList.remove(ACTIVE_CLASS_NAME);
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  };
+
+  var _loop = function _loop(i) {
+    var light = lights[i];
+
+    light.onclick = function () {
+      if (isActive === false) {
+        return;
+      }
+
+      toggleOff();
+      light.classList.add(ACTIVE_CLASS_NAME);
+    };
+  };
+
+  for (var i = 0; i < lights.length; i++) {
+    _loop(i);
+  }
+};
+
+/***/ }),
+
+/***/ "./src/lesson_13/lighter.scss":
+/*!************************************!*\
+  !*** ./src/lesson_13/lighter.scss ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ 7:
 /*!******************************************!*\
-  !*** multi ./src/lesson_11/lesson_11.js ***!
+  !*** multi ./src/lesson_13/lesson_13.js ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/lesson_11/lesson_11.js */"./src/lesson_11/lesson_11.js");
+module.exports = __webpack_require__(/*! ./src/lesson_13/lesson_13.js */"./src/lesson_13/lesson_13.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=lesson_11.js.map
+//# sourceMappingURL=lesson_13.js.map
