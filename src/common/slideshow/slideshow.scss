@@ -1,0 +1,91 @@
+@mixin controlLeftHover {
+  background: rgb(119, 119, 119);
+  background: linear-gradient(
+    90deg,
+    rgba(56, 56, 56, 0.3) 0%,
+    rgba(180, 180, 180, 0.2) 36%,
+    rgba(255, 255, 255, 0) 74%
+  );
+}
+
+@mixin controlRightHover {
+  background: rgb(119, 119, 119);
+  background: linear-gradient(
+    -90deg,
+    rgba(56, 56, 56, 0.3) 0%,
+    rgba(180, 180, 180, 0.2) 36%,
+    rgba(255, 255, 255, 0) 74%
+  );
+}
+
+@mixin controlsHover {
+  &:nth-of-type(1) {
+    @include controlLeftHover;
+  }
+  &:nth-of-type(2) {
+    @include controlRightHover;
+  }
+}
+
+.slideshow {
+  max-width: 500px;
+  position: relative;
+  border: 1px solid red;
+  display: flex;
+  &:hover {
+    .control {
+      @include controlsHover;
+    }
+  }
+}
+
+.slide {
+  width: 100%;
+  flex: 0 0 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  > img {
+    width: 100%;
+    display: block;
+  }
+  &__rating {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px;
+    background: orange;
+    color: #fff;
+  }
+  &__description {
+    position: absolute;
+    bottom: 0;
+    left: 8px;
+    width: calc(100% - 16px);
+    color: #fff;
+  }
+}
+
+.control {
+  border: none;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 25%;
+  padding: 0;
+  background: transparent;
+  outline: none;
+  &:focus {
+    @include controlsHover;
+  }
+  &:nth-of-type(1) {
+    left: 0;
+  }
+  &:nth-of-type(2) {
+    right: 0;
+  }
+}
