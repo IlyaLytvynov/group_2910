@@ -90,14 +90,21 @@
 /*!*************************************!*\
   !*** ./src/common/button/button.js ***!
   \*************************************/
-/*! exports provided: createButton */
+/*! exports provided: createButton, Button */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return createButton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
 /* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button.scss */ "./src/common/button/button.scss");
 /* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_button_scss__WEBPACK_IMPORTED_MODULE_0__);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 var createButton = function createButton() {
@@ -116,6 +123,42 @@ var createButton = function createButton() {
 
   mountPoint.appendChild(button);
 };
+
+var Button =
+/*#__PURE__*/
+function () {
+  function Button() {
+    var mountPoint = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
+    var title = arguments.length > 1 ? arguments[1] : undefined;
+    var onClick = arguments.length > 2 ? arguments[2] : undefined;
+    var type = arguments.length > 3 ? arguments[3] : undefined;
+
+    _classCallCheck(this, Button);
+
+    this.mountPoint = mountPoint;
+    this.title = title;
+    this.onClick = onClick;
+    this.type = type;
+  }
+
+  _createClass(Button, [{
+    key: "render",
+    value: function render() {
+      this.el = document.createElement("button");
+      this.el.onclick = this.onClick;
+      this.el.textContent = this.title;
+      this.el.classList.add("btn");
+
+      if (this.type === "success") {
+        this.el.classList.add("btn_success");
+      }
+
+      this.mountPoint.appendChild(this.el);
+    }
+  }]);
+
+  return Button;
+}();
 
 
 
@@ -136,13 +179,15 @@ var createButton = function createButton() {
 /*!************************************!*\
   !*** ./src/common/button/index.js ***!
   \************************************/
-/*! exports provided: createButton */
+/*! exports provided: createButton, Button */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button */ "./src/common/button/button.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["createButton"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["Button"]; });
 
 
 

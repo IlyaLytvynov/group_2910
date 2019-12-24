@@ -16,4 +16,10 @@ const sections = [
   }
 ];
 
+function dropDown(mountPoint, options) {}
+
+dropDown(
+  document.querySelector("body", ["USA", "CANADA", "UKRAINE", "PUERTO RICO"])
+);
+
 export const accordion = mountPouint => {};

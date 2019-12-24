@@ -16,4 +16,30 @@ const createButton = (
   mountPoint.appendChild(button);
 };
 
-export { createButton };
+class Button {
+  constructor(
+    mountPoint = document.querySelector("body"),
+    title,
+    onClick,
+    type
+  ) {
+    this.mountPoint = mountPoint;
+    this.title = title;
+    this.onClick = onClick;
+    this.type = type;
+  }
+
+  render() {
+    this.el = document.createElement("button");
+    this.el.onclick = this.onClick;
+    this.el.textContent = this.title;
+    this.el.classList.add("btn");
+
+    if (this.type === "success") {
+      this.el.classList.add("btn_success");
+    }
+    this.mountPoint.appendChild(this.el);
+  }
+}
+
+export { createButton, Button };
