@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -260,257 +260,195 @@ function (_RoundButton) {
 
 /***/ }),
 
-/***/ "./src/common/lighterDynamic/index.js":
-/*!********************************************!*\
-  !*** ./src/common/lighterDynamic/index.js ***!
-  \********************************************/
-/*! exports provided: trafficLighterDynamic */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lighterDinamic__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lighterDinamic */ "./src/common/lighterDynamic/lighterDinamic.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "trafficLighterDynamic", function() { return _lighterDinamic__WEBPACK_IMPORTED_MODULE_0__["trafficLighterDynamic"]; });
-
-
-
-/***/ }),
-
-/***/ "./src/common/lighterDynamic/lighterDinamic.js":
-/*!*****************************************************!*\
-  !*** ./src/common/lighterDynamic/lighterDinamic.js ***!
-  \*****************************************************/
-/*! exports provided: trafficLighterDynamic */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "trafficLighterDynamic", function() { return trafficLighterDynamic; });
-/* harmony import */ var _lighterDynamic_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lighterDynamic.scss */ "./src/common/lighterDynamic/lighterDynamic.scss");
-/* harmony import */ var _lighterDynamic_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lighterDynamic_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _button_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../button/button */ "./src/common/button/button.js");
-/* harmony import */ var _root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./root */ "./src/common/lighterDynamic/root.js");
-/* harmony import */ var _lights__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lights */ "./src/common/lighterDynamic/lights.js");
-
-
-
-
-var ROOT_CLASS_NAME = "traffic-lighter";
-var ACTIVE_CLASS_NAME = "active";
-var trafficLighterDynamic = function trafficLighterDynamic() {
-  var trafficLighterMountPoint = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
-  var isActive = false;
-
-  var toggleOff = function toggleOff() {
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
-
-    try {
-      for (var _iterator = lights[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-        var light = _step.value;
-        light.classList.remove(ACTIVE_CLASS_NAME);
-      }
-    } catch (err) {
-      _didIteratorError = true;
-      _iteratorError = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-          _iterator["return"]();
-        }
-      } finally {
-        if (_didIteratorError) {
-          throw _iteratorError;
-        }
-      }
-    }
-  };
-
-  var onLightClick = function onLightClick(light) {
-    if (isActive === false) {
-      return;
-    }
-
-    toggleOff();
-    light.classList.add(ACTIVE_CLASS_NAME);
-  };
-
-  var clickHandler = function clickHandler() {
-    isActive = !isActive;
-    toggleOff();
-  };
-
-  var lighterRoot = Object(_root__WEBPACK_IMPORTED_MODULE_2__["createRoot"])(trafficLighterMountPoint, ROOT_CLASS_NAME);
-  var lights = Object(_lights__WEBPACK_IMPORTED_MODULE_3__["createLights"])(lighterRoot, 3, onLightClick, ROOT_CLASS_NAME);
-  Object(_button_button__WEBPACK_IMPORTED_MODULE_1__["createButton"])(lighterRoot, "Toggle", clickHandler);
-};
-
-/***/ }),
-
-/***/ "./src/common/lighterDynamic/lighterDynamic.scss":
-/*!*******************************************************!*\
-  !*** ./src/common/lighterDynamic/lighterDynamic.scss ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "./src/common/lighterDynamic/lights.js":
-/*!*********************************************!*\
-  !*** ./src/common/lighterDynamic/lights.js ***!
-  \*********************************************/
-/*! exports provided: createLights */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createLights", function() { return createLights; });
-var createLights = function createLights() {
-  var mountPoint = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
-  var lightsCount = arguments.length > 1 ? arguments[1] : undefined;
-  var onClick = arguments.length > 2 ? arguments[2] : undefined;
-  var rootClassName = arguments.length > 3 ? arguments[3] : undefined;
-  var lights = [];
-
-  var _loop = function _loop(i) {
-    var light = document.createElement("div");
-    light.classList.add("".concat(rootClassName, "__light"));
-
-    light.onclick = function () {
-      onClick(light);
-    };
-
-    lights.push(light);
-    mountPoint.appendChild(light);
-  };
-
-  for (var i = 0; i < lightsCount; i++) {
-    _loop(i);
-  }
-
-  return lights;
-};
-
-/***/ }),
-
-/***/ "./src/common/lighterDynamic/root.js":
-/*!*******************************************!*\
-  !*** ./src/common/lighterDynamic/root.js ***!
-  \*******************************************/
-/*! exports provided: createRoot */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRoot", function() { return createRoot; });
-var createRoot = function createRoot() {
-  var mountPoint = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
-  var className = arguments.length > 1 ? arguments[1] : undefined;
-  var lighterRoot = document.createElement("div");
-  lighterRoot.classList.add(className);
-  mountPoint.appendChild(lighterRoot);
-  return lighterRoot;
-};
-
-/***/ }),
-
-/***/ "./src/lesson_11/calc.js":
-/*!*******************************!*\
-  !*** ./src/lesson_11/calc.js ***!
-  \*******************************/
-/*! exports provided: calc */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "calc", function() { return calc; });
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-// Functions
-// Funtion params
-// Function return
-// Scopes, global|local
-// Modules|WEBPACK
-// FUNCTION DECLARATION vs FUNCTION EXPRESSION vs ARROW FUNCTIONS
-// CLOJURES
-// CONTEXT
-function requestOperands() {
-  var valueA = requestOperand("Enter A");
-  var valueB = requestOperand("Enter B");
-  return [valueA, valueB];
-}
-
-function requestValue(message) {
-  var str = prompt(message);
-  var number = parseInt(str);
-  return number;
-}
-
-function requestOperand(message) {
-  var number = requestValue(message);
-
-  while (isNaN(number)) {
-    number = requestValue(message);
-  }
-
-  return number;
-}
-
-function add(a, b) {
-  return a + b;
-}
-
-function print(data) {
-  display.textContent = "RESULT: " + data;
-}
-
-function calc() {
-  var _requestOperands = requestOperands(),
-      _requestOperands2 = _slicedToArray(_requestOperands, 2),
-      operandA = _requestOperands2[0],
-      operandB = _requestOperands2[1]; // 20, 15
-
-
-  var result = add(operandA, operandB);
-  print(result);
-}
-
-/***/ }),
-
-/***/ "./src/lesson_11/lesson_11.js":
+/***/ "./src/common/button/index.js":
 /*!************************************!*\
-  !*** ./src/lesson_11/lesson_11.js ***!
+  !*** ./src/common/button/index.js ***!
+  \************************************/
+/*! exports provided: createButton, Button, RoundButton, LinkButton, FakeRoundButton */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _button__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button */ "./src/common/button/button.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["createButton"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["Button"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RoundButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["RoundButton"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LinkButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["LinkButton"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FakeRoundButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["FakeRoundButton"]; });
+
+
+
+/***/ }),
+
+/***/ "./src/lesson_16/lesson_16.js":
+/*!************************************!*\
+  !*** ./src/lesson_16/lesson_16.js ***!
   \************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _lesson_11_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lesson_11.scss */ "./src/lesson_11/lesson_11.scss");
-/* harmony import */ var _lesson_11_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lesson_11_scss__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _calc__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./calc */ "./src/lesson_11/calc.js");
-/* harmony import */ var _common_lighterDynamic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/lighterDynamic */ "./src/common/lighterDynamic/index.js");
+/* harmony import */ var _lesson_16_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./lesson_16.scss */ "./src/lesson_16/lesson_16.scss");
+/* harmony import */ var _lesson_16_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_lesson_16_scss__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/button */ "./src/common/button/index.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 
 
-Object(_common_lighterDynamic__WEBPACK_IMPORTED_MODULE_2__["trafficLighterDynamic"])();
-Object(_calc__WEBPACK_IMPORTED_MODULE_1__["calc"])();
+var cancelButton = new _common_button__WEBPACK_IMPORTED_MODULE_1__["Button"](document.querySelector("body"), "Log in", function () {
+  prompt("Enter username");
+}, "rgb(255, 0, 0)");
+cancelButton.render();
+var roundedButton = new _common_button__WEBPACK_IMPORTED_MODULE_1__["RoundButton"](document.querySelector("body"), "Log in", function () {
+  prompt("Enter username");
+}, "#ff00ff");
+roundedButton.render();
+var roundedButtonFake = new _common_button__WEBPACK_IMPORTED_MODULE_1__["FakeRoundButton"](document.querySelector("body"), "Log in", function () {
+  prompt("Enter username");
+}, "#ff00ff");
+roundedButtonFake.render();
+var linked = new _common_button__WEBPACK_IMPORTED_MODULE_1__["LinkButton"](document.querySelector("body"), "Log in", function () {
+  prompt("Enter username");
+}, "rgb(0, 0, 255)");
+linked.render();
+console.log(linked, roundedButton, roundedButtonFake, cancelButton);
+
+var Person =
+/*#__PURE__*/
+function () {
+  function Person(name, gender) {
+    _classCallCheck(this, Person);
+
+    this.name = name;
+    this.gender = gender;
+  }
+
+  _createClass(Person, [{
+    key: "greet",
+    value: function greet() {
+      console.log("Hello my name is " + this.name);
+    }
+  }]);
+
+  return Person;
+}();
+
+var Pm =
+/*#__PURE__*/
+function (_Person) {
+  _inherits(Pm, _Person);
+
+  function Pm() {
+    _classCallCheck(this, Pm);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Pm).apply(this, arguments));
+  }
+
+  _createClass(Pm, [{
+    key: "toManage",
+    value: function toManage() {
+      console.log("Manage the project!! Jira is up to day!");
+    }
+  }]);
+
+  return Pm;
+}(Person);
+
+var Developer =
+/*#__PURE__*/
+function (_Person2) {
+  _inherits(Developer, _Person2);
+
+  function Developer(name, gender, lang) {
+    var _this;
+
+    _classCallCheck(this, Developer);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Developer).call(this, name, gender));
+    _this.lang = lang;
+    return _this;
+  }
+
+  _createClass(Developer, [{
+    key: "toCode",
+    value: function toCode() {
+      console.log("Code in " + this.lang);
+    }
+  }]);
+
+  return Developer;
+}(Person); // Composition|Delegation
+
+
+var DevManager =
+/*#__PURE__*/
+function (_Person3) {
+  _inherits(DevManager, _Person3);
+
+  function DevManager(name, gender, lang) {
+    var _this2;
+
+    _classCallCheck(this, DevManager);
+
+    _this2 = _possibleConstructorReturn(this, _getPrototypeOf(DevManager).call(this, name, gender));
+    _this2.dev = new Developer(name, gender, lang);
+    _this2.pm = new Pm(name, gender, lang);
+    return _this2;
+  }
+
+  _createClass(DevManager, [{
+    key: "toCode",
+    value: function toCode() {
+      this.dev.toCode();
+    }
+  }, {
+    key: "toManage",
+    value: function toManage() {
+      this.pm.toManage();
+    }
+  }]);
+
+  return DevManager;
+}(Person);
+
+var ilya = new Developer("Ilya", "male", "JS");
+ilya.greet();
+ilya.toCode();
+var alice = new DevManager("Alice", "female", ".NET");
+alice.greet();
+alice.toManage();
+var currentDate = new Date();
+console.log(currentDate);
+console.log(currentDate.getHours());
+console.log(currentDate.getMinutes());
+console.log(currentDate.getSeconds());
 
 /***/ }),
 
-/***/ "./src/lesson_11/lesson_11.scss":
+/***/ "./src/lesson_16/lesson_16.scss":
 /*!**************************************!*\
-  !*** ./src/lesson_11/lesson_11.scss ***!
+  !*** ./src/lesson_16/lesson_16.scss ***!
   \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -519,17 +457,17 @@ Object(_calc__WEBPACK_IMPORTED_MODULE_1__["calc"])();
 
 /***/ }),
 
-/***/ 5:
+/***/ 10:
 /*!******************************************!*\
-  !*** multi ./src/lesson_11/lesson_11.js ***!
+  !*** multi ./src/lesson_16/lesson_16.js ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/lesson_11/lesson_11.js */"./src/lesson_11/lesson_11.js");
+module.exports = __webpack_require__(/*! ./src/lesson_16/lesson_16.js */"./src/lesson_16/lesson_16.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=lesson_11.js.map
+//# sourceMappingURL=lesson_16.js.map

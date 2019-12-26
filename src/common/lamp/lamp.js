@@ -3,15 +3,16 @@ import { getRandomColor } from "../utils";
 
 export class Lamp {
   constructor(mountPoint, color = getRandomColor(), isClickable = true) {
-    this.mountPoint = mountPoint;
-    this.color = color;
-    this.isActive = false;
-    this.isClickable = isClickable;
+    this.mountPoint = mountPoint; // DOMNode
+    this.color = color; // string
+    this.isActive = false; // boolean
+    this.isClickable = isClickable; // boolean
+    this.el = undefined;
     console.log(this);
   }
 
   render() {
-    this.el = document.createElement("button");
+    this.el = document.createElement("button"); // DOMNode lamp
     this.el.classList.add("lamp");
     this.el.addEventListener("click", () => {
       if (this.isClickable) {

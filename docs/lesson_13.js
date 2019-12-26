@@ -90,15 +90,34 @@
 /*!*************************************!*\
   !*** ./src/common/button/button.js ***!
   \*************************************/
-/*! exports provided: createButton, Button */
+/*! exports provided: createButton, Button, RoundButton, LinkButton, FakeRoundButton */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return createButton; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoundButton", function() { return RoundButton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkButton", function() { return LinkButton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FakeRoundButton", function() { return FakeRoundButton; });
 /* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button.scss */ "./src/common/button/button.scss");
 /* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_button_scss__WEBPACK_IMPORTED_MODULE_0__);
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -111,13 +130,13 @@ var createButton = function createButton() {
   var mountPoint = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
   var title = arguments.length > 1 ? arguments[1] : undefined;
   var onClick = arguments.length > 2 ? arguments[2] : undefined;
-  var type = arguments.length > 3 ? arguments[3] : undefined;
+  var color = arguments.length > 3 ? arguments[3] : undefined;
   var button = document.createElement("button");
   button.onclick = onClick;
   button.textContent = title;
   button.classList.add("btn");
 
-  if (type === "success") {
+  if (color === "success") {
     button.classList.add("btn_success");
   }
 
@@ -131,34 +150,100 @@ function () {
     var mountPoint = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
     var title = arguments.length > 1 ? arguments[1] : undefined;
     var onClick = arguments.length > 2 ? arguments[2] : undefined;
-    var type = arguments.length > 3 ? arguments[3] : undefined;
+    var color = arguments.length > 3 ? arguments[3] : undefined;
 
     _classCallCheck(this, Button);
 
     this.mountPoint = mountPoint;
     this.title = title;
     this.onClick = onClick;
-    this.type = type;
+    this.color = color;
+    this.el = document.createElement("button");
   }
 
   _createClass(Button, [{
     key: "render",
     value: function render() {
-      this.el = document.createElement("button");
       this.el.onclick = this.onClick;
       this.el.textContent = this.title;
       this.el.classList.add("btn");
-
-      if (this.type === "success") {
-        this.el.classList.add("btn_success");
-      }
-
+      this.el.style.backgroundColor = this.color;
       this.mountPoint.appendChild(this.el);
     }
   }]);
 
   return Button;
 }();
+
+var LinkButton =
+/*#__PURE__*/
+function (_Button) {
+  _inherits(LinkButton, _Button);
+
+  function LinkButton() {
+    var _this;
+
+    var mountPoint = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document.querySelector("body");
+    var title = arguments.length > 1 ? arguments[1] : undefined;
+    var onClick = arguments.length > 2 ? arguments[2] : undefined;
+    var color = arguments.length > 3 ? arguments[3] : undefined;
+    var href = arguments.length > 4 ? arguments[4] : undefined;
+
+    _classCallCheck(this, LinkButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(LinkButton).call(this, mountPoint, title, onClick, color));
+    _this.href = href;
+    _this.el = document.createElement("a");
+    return _this;
+  }
+
+  return LinkButton;
+}(Button);
+
+var RoundButton =
+/*#__PURE__*/
+function (_Button2) {
+  _inherits(RoundButton, _Button2);
+
+  function RoundButton() {
+    _classCallCheck(this, RoundButton);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(RoundButton).apply(this, arguments));
+  }
+
+  _createClass(RoundButton, [{
+    key: "render",
+    value: function render() {
+      _get(_getPrototypeOf(RoundButton.prototype), "render", this).call(this);
+
+      this.el.classList.add("btn_rounded");
+      console.log(this.el);
+    }
+  }]);
+
+  return RoundButton;
+}(Button);
+
+var FakeRoundButton =
+/*#__PURE__*/
+function (_RoundButton) {
+  _inherits(FakeRoundButton, _RoundButton);
+
+  function FakeRoundButton() {
+    _classCallCheck(this, FakeRoundButton);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(FakeRoundButton).apply(this, arguments));
+  }
+
+  _createClass(FakeRoundButton, [{
+    key: "hello",
+    value: function hello() {
+      console.log("Hello!");
+    }
+  }]);
+
+  return FakeRoundButton;
+}(RoundButton);
 
 
 
@@ -179,7 +264,7 @@ function () {
 /*!************************************!*\
   !*** ./src/common/button/index.js ***!
   \************************************/
-/*! exports provided: createButton, Button */
+/*! exports provided: createButton, Button, RoundButton, LinkButton, FakeRoundButton */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,6 +273,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "createButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["createButton"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["Button"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "RoundButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["RoundButton"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "LinkButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["LinkButton"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "FakeRoundButton", function() { return _button__WEBPACK_IMPORTED_MODULE_0__["FakeRoundButton"]; });
 
 
 

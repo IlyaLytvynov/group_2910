@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/common/button/button.scss"],"names":[],"mappings":";AAAA,KAAK,aAAa,YAAY,gBAAgB,mCAAmC,aAAa,kBAAkB,YAAY","file":"lesson_16.css","sourcesContent":[".btn{padding:20px;border:none;background:grey;box-shadow:1px 1px 4px 2px #5c5c5c}.btn_rounded{border-radius:50%;height:50px;width:50px}\n"],"sourceRoot":""}

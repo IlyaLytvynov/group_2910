@@ -1,7 +1,7 @@
 
 .lamp{background:transparent;font-size:1rem;border-radius:50%;width:50px;height:50px;border:1px solid grey}
 
-.btn{padding:20px;border:none;background:grey;box-shadow:1px 1px 4px 2px #5c5c5c}.btn_success{background:green}.btn_red{background:red}
+.btn{padding:20px;border:none;background:grey;box-shadow:1px 1px 4px 2px #5c5c5c}.btn_rounded{border-radius:50%;height:50px;width:50px}
 
 .traffic-lighter{width:70px;border:1px solid #868686;margin:0 auto;padding:10px}.traffic-lighter__light{border-radius:50%;background:#616161;width:50px;height:50px;margin:10px auto;display:flex;justify-content:center;align-items:center;transition:background-color 0.5s}.traffic-lighter__light.active:nth-child(1){background-color:red}.traffic-lighter__light.active:nth-child(2){background-color:#ff0}.traffic-lighter__light.active:nth-child(3){background-color:green}.traffic-lighter__light.active:nth-child(4){background-color:blue}.traffic-lighter__light.active:nth-child(5){background-color:#f0f}
 

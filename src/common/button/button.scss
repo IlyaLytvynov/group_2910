@@ -3,10 +3,9 @@
   border: none;
   background: grey;
   box-shadow: 1px 1px 4px 2px rgb(92, 92, 92);
-  &_success {
-    background: green;
-  }
-  &_red {
-    background: red;
+  &_rounded {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
   }
 }
