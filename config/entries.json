@@ -31,5 +31,8 @@
   ],
   "lesson_16": [
     "./src/lesson_16/lesson_16.js"
+  ],
+  "clock": [
+    "./src/clock/clock.js"
   ]
 }
