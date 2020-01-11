@@ -1,0 +1,23 @@
+.post {
+  width: 100%;
+  position: relative;
+  > img {
+    width: 100%;
+    display: block;
+  }
+  > h2 {
+    margin: 0;
+    padding: 0;
+  }
+  &__likes {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: orange;
+    padding: 10px;
+    color: #ffffff;
+    &::before {
+      content: "\01F49C";
+    }
+  }
+}

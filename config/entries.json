@@ -34,5 +34,8 @@
   ],
   "clock": [
     "./src/clock/clock.js"
+  ],
+  "ajax": [
+    "./src/ajax/ajax.js"
   ]
 }

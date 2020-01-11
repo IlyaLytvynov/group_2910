@@ -1,0 +1,8 @@
+.feed {
+  min-height: 100vh;
+  border: 1px solid green;
+  position: relative;
+  &__content {
+    position: relative;
+  }
+}
